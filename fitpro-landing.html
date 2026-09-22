@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>FitPro Academia | Treine forte, viva melhor</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:#0d0d0d; --bg-alt:#161616; --card:#1c1c1c; --text:#f7f6f0; --muted:#aaa89c;
+    --accent:#f7c600; --accent-dark:#d9ad00; --border:#2d2d2b; --accent-ink:#161200;
+    --whatsapp:#25D366; --whatsapp-dark:#1ebe57;
+    box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+  }
+  :root:not([data-theme="light"]){}
+  :root[data-theme="light"]{
+    --bg:#ffffff; --bg-alt:#fbf7e8; --card:#ffffff; --text:#161512; --muted:#5c584c;
+    --accent:#f2ba00; --accent-dark:#c99600; --border:#ece2bd; --accent-ink:#161200;
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --bg:#ffffff; --bg-alt:#fbf7e8; --card:#ffffff; --text:#161512; --muted:#5c584c;
+      --accent:#f2ba00; --accent-dark:#c99600; --border:#ece2bd; --accent-ink:#161200;
+    }
+  }
+  html{scroll-behavior:smooth; scroll-padding-top:env(safe-area-inset-top,0px);}
+  body{background:var(--bg); color:var(--text); font-family:'Inter',sans-serif;}
+  h1,h2,h3,.brand{font-family:'Poppins',sans-serif;}
+  .card{background:var(--card); border:1px solid var(--border);}
+  .bg-alt{background:var(--bg-alt);}
+  .border-c{border-color:var(--border);}
+  .text-muted{color:var(--muted);}
+  .btn-accent{background:var(--accent); color:var(--accent-ink); font-weight:700;}
+  .btn-accent:hover{background:var(--accent-dark);}
+  .accent-text{color:var(--accent);}
+  .btn-whatsapp{background:var(--whatsapp); color:#04140a; font-weight:700;}
+  .btn-whatsapp:hover{background:var(--whatsapp-dark);}
+  header{background:color-mix(in srgb, var(--bg) 85%, transparent); backdrop-filter: blur(8px); border-bottom:1px solid var(--border);}
+  #mobileMenu.hidden{display:none;}
+  .hero-grad{background:radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--accent) 18%, transparent), transparent 60%), var(--bg);}
+  .star{color:var(--accent);}
+</style>
+</head>
+<body class="min-h-screen">
+
+<!-- HEADER -->
+<header class="fixed top-0 left-0 right-0 z-50" style="padding-top:env(safe-area-inset-top,0px)">
+  <div class="max-w-6xl mx-auto flex items-center justify-between px-5 py-4">
+    <a href="#top" class="brand text-xl font-extrabold tracking-tight">Fit<span class="accent-text">Pro</span></a>
+    <nav class="hidden md:flex gap-8 text-sm font-medium">
+      <a href="#servicos" class="hover:text-[var(--accent)]">Serviços</a>
+      <a href="#sobre" class="hover:text-[var(--accent)]">Sobre nós</a>
+      <a href="#depoimentos" class="hover:text-[var(--accent)]">Depoimentos</a>
+      <a href="#contato" class="hover:text-[var(--accent)]">Contato</a>
+    </nav>
+    <div class="flex items-center gap-3">
+      <a href="https://wa.me/551156212774?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20FitPro."
+         target="_blank" rel="noopener"
+         class="hidden sm:inline-flex items-center gap-2 btn-whatsapp px-4 py-2 rounded-full text-sm transition">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20Zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1s-.7.8-.9 1c-.2.2-.3.2-.6.1a6.6 6.6 0 0 1-2-1.2 7.3 7.3 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.5-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-1 1-1 2.3s1 2.7 1.1 2.9c.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1-.1-.1-.2-.2-.5-.3Z"/></svg>
+        WhatsApp
+      </a>
+      <button id="menuBtn" class="md:hidden p-2" aria-label="Abrir menu">
+        <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+      </button>
+    </div>
+  </div>
+  <div id="mobileMenu" class="hidden md:hidden card border-t border-c px-5 py-4 flex flex-col gap-4 text-sm font-medium">
+    <a href="#servicos">Serviços</a>
+    <a href="#sobre">Sobre nós</a>
+    <a href="#depoimentos">Depoimentos</a>
+    <a href="#contato">Contato</a>
+    <a href="https://wa.me/551156212774?text=Ol%C3%A1!%20Quero%20saber%20mais%20sobre%20a%20FitPro." target="_blank" rel="noopener" class="btn-whatsapp text-center px-4 py-2 rounded-full">Falar no WhatsApp</a>
+  </div>
+</header>
+
+<!-- HERO -->
+<section id="top" class="hero-grad pt-32 pb-20 px-5">
+  <div class="max-w-6xl mx-auto text-center flex flex-col items-center gap-6">
+    <span class="text-xs font-semibold uppercase tracking-widest accent-text">Jardim Miriam · São Paulo</span>
+    <h1 class="text-4xl sm:text-5xl md:text-6xl font-extrabold leading-tight max-w-3xl">
+      Transforme seu corpo. <span class="accent-text">Transforme sua vida.</span>
+    </h1>
+    <p class="text-muted text-lg max-w-xl">
+      Estrutura completa, professores especializados e a energia que faltava para você chegar no seu melhor. Venha treinar na FitPro.
+    </p>
+    <div class="flex flex-col sm:flex-row gap-4 mt-2">
+      <a href="https://wa.me/551156212774?text=Ol%C3%A1!%20Quero%20agendar%20uma%20aula%20experimental." target="_blank" rel="noopener"
+         class="btn-accent px-8 py-3.5 rounded-full text-base shadow-lg">
+        Agende sua aula experimental grátis
+      </a>
+      <a href="#servicos" class="px-8 py-3.5 rounded-full text-base font-semibold border border-c hover:border-[var(--accent)] transition">
+        Ver serviços
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" class="py-20 px-5 bg-alt">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl font-bold text-center mb-2">Nossos serviços</h2>
+    <p class="text-muted text-center mb-12">Tudo que você precisa para alcançar seus objetivos, em um só lugar.</p>
+    <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="card rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl btn-accent flex items-center justify-center mb-4 text-xl">🏋️</div>
+        <h3 class="font-bold text-lg mb-2">Musculação</h3>
+        <p class="text-muted text-sm">Equipamentos modernos e espaço amplo para todos os níveis de treino.</p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl btn-accent flex items-center justify-center mb-4 text-xl">🔥</div>
+        <h3 class="font-bold text-lg mb-2">Aulas em grupo</h3>
+        <p class="text-muted text-sm">Funcional, spinning e treinos em grupo para você treinar com energia.</p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl btn-accent flex items-center justify-center mb-4 text-xl">🎯</div>
+        <h3 class="font-bold text-lg mb-2">Personal trainer</h3>
+        <p class="text-muted text-sm">Acompanhamento individualizado para resultados mais rápidos e seguros.</p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl btn-accent flex items-center justify-center mb-4 text-xl">🥗</div>
+        <h3 class="font-bold text-lg mb-2">Avaliação e nutrição</h3>
+        <p class="text-muted text-sm">Avaliação física periódica e orientação nutricional integrada ao treino.</p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl btn-accent flex items-center justify-center mb-4 text-xl">🧘</div>
+        <h3 class="font-bold text-lg mb-2">Alongamento & bem-estar</h3>
+        <p class="text-muted text-sm">Aulas focadas em mobilidade, recuperação e qualidade de vida.</p>
+      </div>
+      <div class="card rounded-2xl p-6">
+        <div class="w-12 h-12 rounded-xl btn-accent flex items-center justify-center mb-4 text-xl">👥</div>
+        <h3 class="font-bold text-lg mb-2">Planos flexíveis</h3>
+        <p class="text-muted text-sm">Mensal, trimestral ou anual — escolha o plano ideal para você.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SOBRE + DEPOIMENTOS -->
+<section id="sobre" class="py-20 px-5">
+  <div class="max-w-6xl mx-auto grid md:grid-cols-2 gap-12 items-start">
+    <div>
+      <h2 class="text-3xl font-bold mb-4">Sobre a FitPro</h2>
+      <p class="text-muted mb-4">
+        A FitPro é a academia do Jardim Miriam feita para quem busca resultado de verdade, sem enrolação. Nossa equipe acompanha cada aluno de perto, do primeiro treino às metas mais ambiciosas.
+      </p>
+      <p class="text-muted">
+        Com horários amplos durante a semana e uma estrutura pensada para todos os níveis, a FitPro é o lugar certo para começar — ou continuar — sua jornada fitness.
+      </p>
+    </div>
+    <div id="depoimentos">
+      <h3 class="font-bold text-lg mb-4">O que dizem nossos alunos</h3>
+      <div class="flex flex-col gap-4">
+        <div class="card rounded-2xl p-5">
+          <div class="star mb-2">★★★★★</div>
+          <p class="text-sm mb-2">"Academia completa, equipamentos sempre em dia e os professores são muito atenciosos. Recomendo demais!"</p>
+          <span class="text-xs text-muted">— Aluna há 1 ano</span>
+        </div>
+        <div class="card rounded-2xl p-5">
+          <div class="star mb-2">★★★★★</div>
+          <p class="text-sm mb-2">"Ambiente limpo, organizado e com horário de funcionamento ótimo pra quem treina de manhã cedo antes do trabalho."</p>
+          <span class="text-xs text-muted">— Aluno há 8 meses</span>
+        </div>
+        <div class="card rounded-2xl p-5">
+          <div class="star mb-2">★★★★★</div>
+          <p class="text-sm mb-2">"Melhor custo-benefício da região. Já indiquei pra vários amigos e todos gostaram muito."</p>
+          <span class="text-xs text-muted">— Aluna há 3 meses</span>
+        </div>
+      </div>
+      <p class="text-xs text-muted mt-3">* Depoimentos ilustrativos — substitua pelos comentários reais da sua ficha no Google Maps.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINAL -->
+<section class="py-16 px-5 bg-alt">
+  <div class="max-w-3xl mx-auto text-center">
+    <h2 class="text-2xl sm:text-3xl font-bold mb-3">Pronto para começar?</h2>
+    <p class="text-muted mb-6">Fale agora com a gente pelo WhatsApp e garanta sua aula experimental.</p>
+    <a href="https://wa.me/551156212774?text=Ol%C3%A1!%20Quero%20agendar%20uma%20aula%20experimental." target="_blank" rel="noopener"
+       class="btn-whatsapp inline-block px-8 py-3.5 rounded-full text-base shadow-lg">Chamar no WhatsApp</a>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer id="contato" class="pt-16 pb-8 px-5 border-t border-c" style="padding-bottom:calc(2rem + env(safe-area-inset-bottom,0px))">
+  <div class="max-w-6xl mx-auto grid sm:grid-cols-2 lg:grid-cols-3 gap-10">
+    <div>
+      <h3 class="brand text-xl font-extrabold mb-3">Fit<span class="accent-text">Pro</span></h3>
+      <p class="text-muted text-sm mb-4">Sua melhor versão começa aqui.</p>
+      <p class="text-sm">📍 Av. Cupecê, 5678 — Jardim Miriam<br>São Paulo - SP, 04366-001</p>
+      <a href="https://www.google.com/maps/search/?api=1&query=Av.+Cupec%C3%AA%2C+5678+-+Jardim+Miriam%2C+S%C3%A3o+Paulo+-+SP%2C+04366-001"
+         target="_blank" rel="noopener" class="inline-block mt-3 text-sm font-semibold accent-text hover:underline">Ver no Google Maps →</a>
+    </div>
+    <div>
+      <h4 class="font-bold mb-3">Horário de funcionamento</h4>
+      <ul class="text-sm text-muted space-y-1">
+        <li class="flex justify-between max-w-xs"><span>Segunda</span><span>5:30 – 23:00</span></li>
+        <li class="flex justify-between max-w-xs"><span>Terça</span><span>5:30 – 23:00</span></li>
+        <li class="flex justify-between max-w-xs"><span>Quarta</span><span>5:30 – 23:00</span></li>
+        <li class="flex justify-between max-w-xs"><span>Quinta</span><span>5:30 – 23:00</span></li>
+        <li class="flex justify-between max-w-xs"><span>Sexta</span><span>5:30 – 22:00</span></li>
+        <li class="flex justify-between max-w-xs"><span>Sábado</span><span>8:00 – 14:00</span></li>
+        <li class="flex justify-between max-w-xs"><span>Domingo</span><span>Fechado</span></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-3">Contato</h4>
+      <a href="https://wa.me/551156212774" target="_blank" rel="noopener" class="flex items-center gap-2 text-sm mb-4 font-semibold hover:underline" style="color:var(--whatsapp)">
+        <svg viewBox="0 0 24 24" width="16" height="16" fill="currentColor"><path d="M12 2a10 10 0 0 0-8.6 15L2 22l5.2-1.4A10 10 0 1 0 12 2Zm0 18a8 8 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8 8 0 1 1 12 20Zm4.4-5.9c-.2-.1-1.4-.7-1.6-.8-.2-.1-.4-.1-.6.1s-.7.8-.9 1c-.2.2-.3.2-.6.1a6.6 6.6 0 0 1-2-1.2 7.3 7.3 0 0 1-1.4-1.7c-.1-.2 0-.4.1-.5l.4-.5c.1-.2.2-.3.2-.5.1-.2 0-.4 0-.5s-.6-1.5-.8-2c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.5.1-.7.3-.2.2-1 1-1 2.3s1 2.7 1.1 2.9c.1.2 2 3 4.8 4.3.7.3 1.2.5 1.6.6.7.2 1.3.2 1.8.1.5-.1 1.4-.6 1.6-1.1.2-.6.2-1 .1-1.1-.1-.1-.2-.2-.5-.3Z"/></svg>
+        (11) 5621-2774
+      </a>
+      <div class="rounded-xl overflow-hidden border border-c">
+        <svg viewBox="0 0 300 140" class="w-full h-auto" xmlns="http://www.w3.org/2000/svg">
+          <rect width="300" height="140" fill="var(--bg-alt)"/>
+          <path d="M0 90 Q80 60 150 85 T300 70" stroke="var(--border)" stroke-width="10" fill="none"/>
+          <path d="M0 40 Q100 20 180 45 T300 30" stroke="var(--border)" stroke-width="6" fill="none"/>
+          <circle cx="150" cy="80" r="8" fill="var(--accent)"/>
+          <path d="M150 80 l0 -18" stroke="var(--accent)" stroke-width="3"/>
+          <text x="150" y="115" text-anchor="middle" font-size="11" fill="var(--muted)" font-family="Inter, sans-serif">Jardim Miriam · São Paulo</text>
+        </svg>
+      </div>
+    </div>
+  </div>
+  <p class="text-center text-xs text-muted mt-12">© 2026 FitPro Academia. Todos os direitos reservados.</p>
+</footer>
+
+<script>
+  const menuBtn = document.getElementById('menuBtn');
+  const mobileMenu = document.getElementById('mobileMenu');
+  menuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
+  mobileMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileMenu.classList.add('hidden')));
+</script>
+</body>
+</html>
